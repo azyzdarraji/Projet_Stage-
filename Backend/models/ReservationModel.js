@@ -20,6 +20,7 @@ const ReservationSchema = new mongoose.Schema({
             ref: "Trajectoire",
             required: true
         }
+        
     }],
 
     user: {

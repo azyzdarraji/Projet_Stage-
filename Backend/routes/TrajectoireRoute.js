@@ -6,25 +6,28 @@ const{
     deleteTrajectoire,
     getTrajectoireDetails,
     updateTrajectoire,
-    getAllTrajectoires
+    getAllTrajectoires,
+    
 } =require('../controllers/TrajectoireController')
+const { isAuthenticatedUser, authorizeRoles } = require("../middelwares/auth");
 
 
 const router = express.Router();
 
+router.route("/test").get(testTrajectoire)
 
-router.route("/trajectoire").get(testTrajectoire);
+router.route("/trajectoire").get(isAuthenticatedUser, authorizeRoles("admin"),testTrajectoire);
 
-router.route("/admin/newtrajectoire").post(CreateTrajectoire);
+router.route("/admin/newtrajectoire").post(isAuthenticatedUser, authorizeRoles("admin"),CreateTrajectoire);
 
-router.route("/admin/alltrajectoires").get(getAllTrajectoires);
+router.route("/alltrajectoires").get(getAllTrajectoires);
 
 
-router.route("/admin/deletetrajectoire").delete(deleteTrajectoire);
+router.route("/admin/deletetrajectoire").delete(isAuthenticatedUser, authorizeRoles("admin"),deleteTrajectoire);
 
-router.route("/admin/updatetrajectoire").put(updateTrajectoire);
+router.route("/admin/updatetrajectoire").put(isAuthenticatedUser, authorizeRoles("admin"),updateTrajectoire);
 
-router.route("/admin/gettrajectoire").get(getTrajectoireDetails);
+router.route("/gettrajectoire").get(getTrajectoireDetails);
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const ErrorHander = require("../utils/errorhander");
-const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const catchAsyncErrors = require("../middelwares/catchAsyncErrors");
 const Trajectoire = require("../models/TrajectoireModel");
 
 

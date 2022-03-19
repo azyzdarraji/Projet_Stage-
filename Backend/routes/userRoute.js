@@ -1,36 +1,46 @@
 const express = require("express");
 const {
-  updateProfile,
+  registerUser,
+  loginUser,
+  logout,
+  forgotPassword,
+  resetPassword,
+  updatePassword,
+  updateUserRole,
   getAllUsers,
-  getSingleUser,
+  updateProfile,
+  getOneUser,
   getUserDetails,
   deleteUser,
-} = require("../controllers/UserController/userController");
+} = require("../controllers/UserController");
 
-const { registerUser,
-  loginUser,
-  logoutUser}=require("../controllers/UserController/authenController")
-
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/isAuth");
-
+const { isAuthenticatedUser, authorizeRoles } = require("../middelwares/auth");
 const router = express.Router();
-
-
 
 router.route("/register").post(registerUser);
 
 router.route("/login").post(loginUser);
 
-router.route("/logout").get(logoutUser);
+router.route("/password/forgot").post(forgotPassword);
 
-router.route("/me").get(getUserDetails);
+router.route("/password/reset/:token").put(resetPassword);
 
-router.route("/me/update").put(updateProfile);
+router.route("/logout").get(logout);
 
-router.route("/admin/allusers").get(getAllUsers);
+router.route("/me").get(isAuthenticatedUser, getUserDetails);
 
-router.route("/admin/delete/:id").delete(deleteUser);
+router.route("/password/update").put(isAuthenticatedUser, updatePassword);
 
-router.route("/admin/user/:id").get(getSingleUser);
+router.route("/me/update").put(isAuthenticatedUser, updateProfile);
+
+router
+  .route("/admin/users")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getAllUsers);
+
+router
+  .route("/admin/user/:id")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getOneUser)
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateUserRole)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteUser);
 
 module.exports = router;

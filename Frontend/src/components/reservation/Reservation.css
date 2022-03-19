@@ -1,0 +1,157 @@
+.reservation {
+    display: flex;
+    width: 99%;
+    padding: 30px;
+    justify-content: space-between;
+}
+.formulaire {
+  
+    width: 80%;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color:#1DA1F2;
+}
+
+
+.choix-type-destination{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.choix-destination{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.depart , .arrivee {
+    display: flex;
+    justify-content:space-between;
+}
+.parcours-1 {
+    display: flex;
+    margin: 15px;
+}
+.parcours {
+    display: flex;
+
+}
+.form-label-1 {
+    margin: 4px;
+}
+
+.arrivee div , .depart div {
+    margin: 10px;
+}
+.input-number-adultes-enfants {
+    width: 150px;
+}
+.number-adultes-enfants {
+    display: flex;
+    
+}
+.number-adultes-enfants p {
+    margin: 10px;
+}
+.formulaire div p  , .formulaire label{
+    font-size: 17px;
+    font-weight: 600;
+}
+.number-reservation{
+    display: flex;
+    width: 99%;
+    justify-content: space-around;
+    padding-left: 100px;
+
+}
+.number-reservation div  {
+    margin:0 10px;
+}
+.btn-recherche{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btn-recherche :hover {
+  background: rgb(13, 0, 128);
+  transition: 0.5s;
+  color: #fff;
+}
+.espace-publicitaire-reservation{
+    margin-left: 40px;
+}
+.espace-publicitaire-reservation img {
+    width: 100%;
+}
+.pr {
+    width:500px;
+}
+
+.multi-distination-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    padding: 15px;
+}
+
+.multi-distination{
+    background: #1DA1F2;
+    width:500px;
+    padding: 20px;
+    margin: 10px;
+}
+
+@media (max-width: 700px) {
+
+    .reservation {
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+   
+    .formulaire {
+        margin-top: 20px;
+        /* background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+        url(https://www.poste.tn/image/png/ban_myposte.png);
+        background-position:50%;
+  background-size:cover;
+  position: relative; */
+    }
+    .choix-type-destination {
+        flex-direction: column;
+    }
+    .choix-destination {
+        flex-direction: column;
+    }
+    .input-number-adultes-enfants {
+        width: 50%;
+    }
+    .number-adultes-enfants {
+        display: flex;
+        margin: 0%;
+        padding: 0%;
+        
+    }
+    .number-adultes-enfants p {
+        margin: 0%;
+        padding: 0%;
+    }
+    .number-reservation{
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        padding-left: 1%;
+    
+    }
+    .depart ,.arrivee{
+        flex-direction: column;
+    }
+    .depart p ,.arrivee div{
+        margin:0%;
+    }
+    .date {
+        width: 90%;
+    }
+    p {
+        font-size: 15px;
+    }
+}

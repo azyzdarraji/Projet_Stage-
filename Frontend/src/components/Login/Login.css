@@ -1,0 +1,23 @@
+.leftSide{
+    background-color: rgb(58, 148, 73);
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 80%;
+}
+.form-login{
+    margin-bottom: 20px;
+}
+.form-login-title{
+    color: #fff;
+    margin: 5px;
+}
+.form-login-btn{
+    margin: 20px;
+    margin-left:30%;
+}
+.form-logo-img {
+    border-radius: 50%;
+    width: 100px;
+    border: 1px solid #fff;
+    margin: 10px 35%;
+}

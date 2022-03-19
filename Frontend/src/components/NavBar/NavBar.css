@@ -1,0 +1,12 @@
+.NavBar {
+    display: flex;
+    justify-content: space-around;
+
+}
+.logo {
+    margin-right: 300px;
+    margin-left: 50px;
+}
+.dark-navbar{
+    margin-right:50px;
+}
